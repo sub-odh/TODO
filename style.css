@@ -2,19 +2,20 @@
   --background: #021526;
   --primary-color: #03346e;
   --secondary-color: #6eacda;
-  --accent-color: #e2e2b6;
   --text-color: #f7f7f7;
 }
 
 * {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
 html {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   font-size: 16pt;
   color: var(--text-color);
+  overflow: hidden;
 }
 
 body {
@@ -153,29 +154,36 @@ input[type="checkbox"] {
   html {
     font-size: 12pt;
   }
-  #add-todo {
+  #add-button {
     position: unset;
     width: 100%;
     margin-top: 10px;
-    padding: 15 px;
+    padding: 15px;
     height: auto;
   }
   h1 {
     margin-top: 50px;
     font-size: 15vw;
   }
+
+  .counters {
+    flex-direction: column;
+    padding: 15px 0;
+  }
 }
 
 .counters {
-  padding: 10px;
+  padding: 0 10px;
   display: flex;
-  flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  font: inherit;
+  color: var(--secondary-color);
 }
 
 h3 {
-  padding: 10px;
-  font-size: 1rem;
-  font-weight: 600;
+  padding: 5px 10px;
+  font: inherit;
+  font-weight: 800;
+  color: var(--secondary-color);
 }

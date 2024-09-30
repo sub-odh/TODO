@@ -20,8 +20,6 @@ html {
 body {
   min-height: 100vh;
   padding: 10px;
-  border: 2px solid var(--secondary-color);
-  border-radius: 5%;
   background-image: url(img/bg.jpg);
   background-size: cover;
   backdrop-filter: blur(2px);
@@ -44,7 +42,7 @@ h1 {
   width: 700px;
   max-width: 100%;
   padding: 10px;
-  border: 0;
+  border: 2px solid var(--secondary-color);
   border-radius: 20px;
   display: flex;
   background-color: var(--background);
@@ -166,4 +164,18 @@ input[type="checkbox"] {
     margin-top: 50px;
     font-size: 15vw;
   }
+}
+
+.counters {
+  padding: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+h3 {
+  padding: 10px;
+  font-size: 1rem;
+  font-weight: 600;
 }

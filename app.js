@@ -5,7 +5,7 @@ const allTask = document.getElementById("all-task");
 const completedTask = document.getElementById("completed-task");
 const remainingTask = document.getElementById("remaining-task");
 
-let allTodos = getTodos();
+let allTodos = getTodoList();
 updateTodoList();
 
 todoForm.addEventListener("submit", function (e) {
@@ -25,6 +25,8 @@ function addTodo() {
     saveTodos();
     updateTodoList();
     todoInput.value = "";
+  } else {
+    alert("Please enter a task");
   }
   counter();
 }
@@ -32,17 +34,9 @@ function addTodo() {
 function updateTodoList() {
   todoListUL.innerHTML = "";
 
-  const groupedTodos = groupTodosByDate(allTodos);
-
-  Object.keys(groupedTodos).forEach((date) => {
-    const dateHeader = document.createElement("h3");
-    dateHeader.innerText = date;
-    todoListUL.append(dateHeader);
-
-    groupedTodos[date].forEach((todo, todoIndex) => {
-      const todoItem = createTodoItem(todo, todoIndex);
-      todoListUL.append(todoItem);
-    });
+  allTodos.forEach((todo, todoIndex) => {
+    const todoItem = createTodoItem(todo, todoIndex);
+    todoListUL.appendChild(todoItem);
   });
   counter();
 }
@@ -71,6 +65,7 @@ function createTodoItem(todo, todoIndex) {
       </svg>
     </label>
     <label for="${todoId}" class="todo-text">${todoText}</label>
+    <label for="${todoId}" class="todo-date">${todo.date}</label>
     <button class="delete-button" type="button">
       <svg xmlns="http://www.w3.org/2000/svg" height="30px" viewBox="0 -960 960 960" width="30px" fill="#6eacda">
         <path d="M280-120q-33 0-56.5-23.5T200-200v-520h-40v-80h200v-40h240v40h200v80h-40v520q0 33-23.5 56.5T680-120H280Zm400-600H280v520h400v-520ZM360-280h80v-360h-80v360Zm160 0h80v-360h-80v360ZM280-720v520-520Z"/>
@@ -109,7 +104,7 @@ function saveTodos() {
   localStorage.setItem("todos", JSON.stringify(allTodos));
 }
 
-function getTodos() {
+function getTodoList() {
   const todos = localStorage.getItem("todos") || "[]";
   return JSON.parse(todos);
 }

@@ -181,9 +181,8 @@ input[type="checkbox"] {
   color: var(--secondary-color);
 }
 
-h3 {
-  padding: 5px 10px;
+.todo-date {
+  margin: 0 10px;
   font: inherit;
-  font-weight: 800;
   color: var(--secondary-color);
 }
